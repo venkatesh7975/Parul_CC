@@ -1,96 +1,83 @@
-class MinStack:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.stack = []
-        self.min_stack = []  # Auxiliary stack to track minimum elements
-        
-    def is_empty(self):
-        return len(self.stack) == 0
-        
-    def is_full(self):
-        return len(self.stack) == self.capacity
-        
-    def push(self, value):
-        if self.is_full():
-            print("Stack Overflow! Cannot push element.")
-            return
-            
-        self.stack.append(value)
-        
-        # Update min_stack
-        if not self.min_stack or value <= self.min_stack[-1]:
-            self.min_stack.append(value)
-        
-        print(f"Pushed {value} to stack")
-        
-    def pop(self):
-        if self.is_empty():
-            print("Stack Underflow! Cannot pop element.")
-            return None
-            
-        popped = self.stack.pop()
-        
-        # Update min_stack if we're popping the current minimum
-        if popped == self.min_stack[-1]:
-            self.min_stack.pop()
-            
-        print(f"Popped {popped} from stack")
-        return popped
-        
-    def top(self):
-        if self.is_empty():
-            print("Stack is empty!")
-            return None
-        return self.stack[-1]
-        
-    def get_min(self):
-        if self.is_empty():
-            print("Stack is empty!")
-            return None
-        return self.min_stack[-1]
-        
-    def display(self):
-        if self.is_empty():
-            print("Stack is empty!")
-            return
-        print("Stack elements (top to bottom):", self.stack[::-1])
-        print("Current minimum:", self.get_min())
+# Write your code here!!
 
-# Example usage
-if __name__ == "__main__":
-    # Create a stack with capacity 5
-    stack = MinStack(5)
+# Initialization
+N = int(input())
+stack = []
+minstack = []
+
+top = -1
+mintop = -1
+
+def push(value):
+    global top, mintop
+
+    if top == N - 1:
+        print("overflow")
+        return
     
-    # Test operations
-    print("Pushing elements...")
-    stack.push(3)
-    stack.push(5)
-    stack.push(2)
-    stack.push(1)
-    
-    print("\nDisplaying stack:")
-    stack.display()
-    
-    print(f"\nTop element: {stack.top()}")
-    print(f"Minimum element: {stack.get_min()}")
-    
-    print("\nPopping elements...")
+    stack.append(value)
+    top += 1
+
+    if mintop == -1 or value <= minstack[mintop]:
+        minstack.append(value)
+        mintop += 1
+
+    print(f"Pushed {value}")
+
+def pop():
+    global top, mintop
+
+    if top == -1:
+        print("underflow")
+        return
+
+    if stack[top] == minstack[mintop]:
+        minstack.pop()
+        mintop -= 1
+
     stack.pop()
-    stack.pop()
-    
-    print("\nDisplaying stack after pops:")
-    stack.display()
-    
-    # Test overflow
-    print("\nTesting overflow...")
-    stack.push(7)
-    stack.push(8)
-    stack.push(9)  # This should show overflow error
-    
-    # Test underflow
-    print("\nTesting underflow...")
-    stack.pop()
-    stack.pop()
-    stack.pop()
-    stack.pop()
-    stack.pop()  # This should show underflow error
+    top -= 1
+
+def Top():
+    if top == -1:
+        print("stack is empty")
+        return
+    print(f"Top: {stack[top]}")
+
+def getMin():
+    if mintop == -1:
+        print("Minstack empty")
+        return
+    print(f"Min: {minstack[mintop]}")
+
+while True:
+    line = input().strip()
+
+    # If empty input, continue
+    if not line:
+        continue
+
+    parts = list(map(int, line.split()))
+
+    choice = parts[0]
+
+    if choice == 1:
+        # push command, value in the same line: "1 10"
+        if len(parts) == 2:
+            val = parts[1]
+        else:
+            val = int(input())   # if value comes in next line
+        push(val)
+
+    elif choice == 2:
+        pop()
+
+    elif choice == 3:
+        Top()
+
+    elif choice == 4:
+        getMin()
+
+    elif choice == 5:
+        print("Exit")
+        break
