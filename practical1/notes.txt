@@ -1,0 +1,150 @@
+Problem Statement:
+----------------
+Write a program for implementing a MINSTACK which should support operations like push, pop, overflow, underflow, 
+display
+ 1. Construct a stack of N-capacity
+ 2. Push elements
+ 3. Pop elements
+ 4. Top element
+ 5. Retrieve the min element from the stack
+
+MinStack Implementation - Algorithm and Pseudocode
+=====================================
+
+Data Structure Design:
+--------------------
+- Main stack: Stores all elements
+- Auxiliary min stack: Maintains minimum elements
+- Capacity: Maximum number of elements allowed
+- Top pointers: Track current position in stacks
+
+Algorithm:
+---------
+1. Initialize MinStack:
+   - Create empty main stack
+   - Create empty auxiliary min stack
+   - Set capacity
+   - Initialize top pointers
+
+2. Push Operation:
+   IF stack is full
+      Print "Stack Overflow"
+      Return
+   Add element to main stack
+   IF min stack is empty OR element <= top of min stack
+      Add element to min stack
+   Print "Pushed element"
+
+3. Pop Operation:
+   IF stack is empty
+      Print "Stack Underflow"
+      Return null
+   Remove top element from main stack
+   IF removed element equals top of min stack
+      Remove top element from min stack
+   Print "Popped element"
+   Return removed element
+
+4. Top Operation:
+   IF stack is empty
+      Print "Stack Empty"
+      Return null
+   Return top element of main stack
+
+5. GetMin Operation:
+   IF stack is empty
+      Print "Stack Empty"
+      Return null
+   Return top element of min stack
+
+6. Display Operation:
+   IF stack is empty
+      Print "Stack Empty"
+      Return
+   Print all elements from top to bottom
+   Print current minimum element
+
+Pseudocode:
+----------
+CLASS MinStack:
+    PRIVATE:
+        stack[]    // Main stack array
+        minStack[] // Auxiliary stack array for minimums
+        capacity   // Maximum size
+        
+    METHOD Constructor(size):
+        capacity = size
+        Initialize empty stack
+        Initialize empty minStack
+        
+    METHOD Push(value):
+        IF Length(stack) == capacity THEN
+            PRINT "Stack Overflow"
+            RETURN
+        ENDIF
+        
+        ADD value TO stack
+        
+        IF minStack IS EMPTY OR value <= minStack[TOP] THEN
+            ADD value TO minStack
+        ENDIF
+        
+        PRINT "Pushed " + value
+        
+    METHOD Pop():
+        IF stack IS EMPTY THEN
+            PRINT "Stack Underflow"
+            RETURN null
+        ENDIF
+        
+        value = REMOVE TOP from stack
+        
+        IF value == minStack[TOP] THEN
+            REMOVE TOP from minStack
+        ENDIF
+        
+        PRINT "Popped " + value
+        RETURN value
+        
+    METHOD Top():
+        IF stack IS EMPTY THEN
+            PRINT "Stack Empty"
+            RETURN null
+        ENDIF
+        RETURN stack[TOP]
+        
+    METHOD GetMin():
+        IF stack IS EMPTY THEN
+            PRINT "Stack Empty"
+            RETURN null
+        ENDIF
+        RETURN minStack[TOP]
+        
+    METHOD Display():
+        IF stack IS EMPTY THEN
+            PRINT "Stack Empty"
+            RETURN
+        ENDIF
+        PRINT "Stack elements: " + stack (top to bottom)
+        PRINT "Current minimum: " + GetMin()
+
+Time Complexity Analysis:
+----------------------
+- Push: O(1)
+- Pop: O(1)
+- Top: O(1)
+- GetMin: O(1)
+- Display: O(n) where n is number of elements
+
+Space Complexity:
+---------------
+O(n) where n is the capacity of the stack
+- Main stack: O(n)
+- Auxiliary min stack: O(n) in worst case
+
+Key Implementation Notes:
+----------------------
+1. The auxiliary min stack helps maintain the minimum element in constant time
+2. All operations except Display are O(1) time complexity
+3. The implementation handles edge cases like overflow and underflow
+4. The min stack only stores elements when they are less than or equal to the current minimum
