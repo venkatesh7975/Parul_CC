@@ -1,5 +1,5 @@
 import sys
-from collections import deque
+sys.setrecursionlimit(10000)
 
 class Node:
     def __init__(self, val):
@@ -7,8 +7,6 @@ class Node:
         self.left = None
         self.right = None
 
-
-data = (map(int, sys.stdin.read().split()))
 
 def build_tree(values):
     val = next(values)
@@ -19,16 +17,16 @@ def build_tree(values):
     node.right = build_tree(values)
     return node
 
-def level_order(root):
-    q = deque([root])
-    while q:
-        node = q.popleft()
-        print(node.data, end=" ")
-        if node.left:
-            q.append(node.left)
-        if node.right:
-            q.append(node.right)
+
+def max_depth(root):
+    if not root:
+        return 0
+    left_depth = max_depth(root.left)
+    right_depth = max_depth(root.right)
+    return max(left_depth, right_depth) + 1
 
 
-root = build_tree(data)
-level_order(root)
+
+data = list(map(int, sys.stdin.read().split()))
+root = build_tree(iter(data))
+print(max_depth(root))
