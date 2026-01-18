@@ -1,37 +1,41 @@
 import java.util.*;
 
-class Device {
-    int id;
-    Device left, right;
-    Device(int val) { id = val; }
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int val) {
+        data = val;
+        left = right = null;
+    }
 }
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
 
-    static Device buildNetwork() {
+    // Build tree from preorder input
+    static Node buildTree() {
+        if (!sc.hasNextInt()) return null;
         int val = sc.nextInt();
         if (val == -1) return null;
-        Device d = new Device(val);
-        d.left = buildNetwork();
-        d.right = buildNetwork();
-        return d;
+
+        Node root = new Node(val);
+        root.left = buildTree();
+        root.right = buildTree();
+        return root;
     }
 
-    static void levelOrder(Device root) {
-        if (root == null) return;
-        Queue<Device> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            Device d = q.poll();
-            System.out.print(d.id + " ");
-            if (d.left != null) q.add(d.left);
-            if (d.right != null) q.add(d.right);
-        }
+    // Compute maximum depth
+    static int maxDepth(Node root) {
+        if (root == null)
+            return 0;
+        int leftDepth = maxDepth(root.left);
+        int rightDepth = maxDepth(root.right);
+        return Math.max(leftDepth, rightDepth) + 1;
     }
 
     public static void main(String[] args) {
-        Device root = buildNetwork();
-        levelOrder(root);
+        Node root = buildTree();
+        System.out.print(maxDepth(root));
     }
 }
