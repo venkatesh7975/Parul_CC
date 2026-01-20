@@ -1,225 +1,214 @@
-# 🚀 Parul_CC – Competitive Coding & DSA Practice Repository
+# 🚀 Parul_CC – Competitive Coding (Semester‑4) | Complete Syllabus‑Aligned DSA Repository
 
-This repository contains a **structured collection of Competitive Coding and Data Structures & Algorithms (DSA) problems** solved as part of training, practice, and teaching sessions (Parul University – CC).
+A **syllabus‑driven Competitive Coding & Data Structures repository** designed for **Parul University (BTech – Semester 4)** students.
 
-It is designed to help:
+This repository is **NOT random practice code**. It is a **complete, structured implementation of the official Competitive Coding syllabus**, used for:
 
-* 📚 **Students** learn DSA step‑by‑step
-* 👨‍🏫 **Trainers** demonstrate clean problem‑solving approaches
-* 💼 **Interview preparation** for placements and coding rounds
-
----
-
-## 📌 Repository Overview
-
-**Parul_CC** includes solutions to classical and frequently asked DSA problems such as:
-
-* Stacks & Queues
-* Linked Lists
-* Binary Search Trees (BST)
-* Binary Trees
-* Hashing
-* Two‑Pointer problems
-* Recursion & Traversals
-
-Each problem is stored in a **separate folder**, making it easy to navigate and revise specific topics.
+* 🎓 **University labs & internal assessments**
+* 🧪 **Practical examinations**
+* 💼 **Placement & interview preparation**
+* 👨‍🏫 **Teaching and demonstrations**
 
 ---
 
-## 📂 Folder Structure
+## 📌 What This Repository Represents
+
+* ✅ 100% **mapped to the official syllabus**
+* ✅ **25 practical problems → 25 folders**
+* ✅ **Each problem solved in C, Python, and Java**
+* ✅ **Visualization‑first learning using `notes.txt`**
+
+The goal is **concept mastery**, not just passing test cases.
+
+---
+
+## 📂 Repository Structure (Actual – As on GitHub)
 
 ```
 Parul_CC/
 │
-├── 1.Minstack/
-├── 2.ValidParentheses/
-├── 3.QueueUsingStack/
-├── ...
-├── 10.ValidBST/
-├── 11.BuildBST/
-├── ...
-├── 24.leftViewTree/
-└── ...
+├── 1.Minstack
+├── 2.PostfixEvaluation
+├── 3.NextGreaterElement
+├── 4.CircularQueue
+├── 5.InfixtoPostfix
+├── 6.PriorityQueue
+├── 7.MergeSortedLinkedLists
+├── 8.MergePointofTwosortedLInkedLists
+├── 9.swapNodePairwise
+├── 10.ValidBST
+├── 11.BuildBST
+├── 12.MaxDepthBST
+├── 13.TreeTraversals
+├── 14.BoundaryTraversalBST
+├── 15.LowestCommonAncestor
+├── 16.ValidateMirrorTrees
+├── 17.HashFunction
+├── 18.HashtableAndOperations
+├── 19.TwoSumsUsingHashMap
+├── 20.Trie
+├── 21.HuffmanCoding
+├── 22.DistinctSubString
+├── 23.NoOfWordsinTrie
+├── 24.leftViewTree
+├── 25.TreeLevelOrderTraversal
+│
+└── competitive coding.pdf
 ```
 
-### 📁 Folder Naming Convention
-
-* Each folder starts with a **problem number**
-* Followed by a **clear problem name**
-
-Example:
-
-```
-24.leftViewTree → Left View of a Binary Tree / BST
-```
+📌 `competitive coding.pdf` → Official syllabus document
 
 ---
 
-## 🧠 Topics Covered
+## 🧩 Inside Each Problem Folder
 
-* ✅ Stack Problems (Min Stack, Stack using Queue)
-* ✅ Queue Problems
-* ✅ Linked List Operations
-* ✅ Binary Trees
-* ✅ Binary Search Trees (BST)
-* ✅ Tree Traversals (Inorder, Preorder, Postorder)
-* ✅ Tree Views (Left View, etc.)
-* ✅ Hashing
-* ✅ Recursion
-* ✅ Competitive Coding Patterns
+```
+<ProblemNumber>.<ProblemName>/
+│
+├── solution.c
+├── solution.py
+├── solution.java
+└── notes.txt
+```
+
+### 📘 `notes.txt` Contains
+
+* 🔗 **Visualization links** (trees, stacks, queues, tries)
+* 🧠 Step‑by‑step logic explanation
+* ✍️ Important observations & tips
+
+This enables **SEE → UNDERSTAND → CODE** learning.
+
+---
+
+## 🧠 Syllabus Coverage (Official – Verified)
+
+### 🔹 Stack & Queue
+
+* Min Stack
+* Expression Evaluation
+* Next Greater Element
+* Circular Queue
+* Infix → Postfix (Shunting Yard Algorithm)
+* Priority Queue applications
+
+### 🔹 Linked Lists
+
+* Merge sorted linked lists
+* Merge point of two linked lists
+* Pairwise node swapping
+
+### 🔹 Trees & Binary Search Trees
+
+* Validate BST
+* Build BST
+* Tree traversals (Inorder, Preorder, Postorder)
+* Maximum depth of tree
+* Boundary traversal
+* Lowest Common Ancestor (LCA)
+* Mirror tree validation
+* Left view of tree
+* Level order traversal
+
+### 🔹 Hashing
+
+* Basic hash function
+* Hash table using separate chaining
+* Two Sum using HashMap
+
+### 🔹 Trie & Advanced Topics
+
+* Trie (insert, search, delete)
+* Count number of words in Trie
+* Distinct substrings
+* Huffman Coding
 
 ---
 
 ## 💻 Languages Used
 
-This repository includes solutions written in:
+Each problem is implemented in:
 
 * 🐍 **Python**
 * ☕ **Java**
 * 🔵 **C**
-* 🟨 **JavaScript**
 
-The same problem may appear in **multiple languages** to help understand language‑specific implementation differences.
-
----
-
-## ▶️ How to Run the Code
-
-### Python
-
-```bash
-python filename.py
-```
-
-### Java
-
-```bash
-javac FileName.java
-java FileName
-```
-
-### C
-
-```bash
-gcc file.c -o file
-./file
-```
-
-### JavaScript (Node.js)
-
-```bash
-node filename.js
-```
-
-> ⚠️ Input is generally taken from **standard input (stdin)** unless specified in the code.
+Students may use **any one language** during labs/exams.
 
 ---
 
-## 🧪 Input / Output Format
+## ▶️ How Students Run the Code (Important)
 
-Most problems follow this pattern:
+### 🌐 Online Compilers (Recommended & Common Practice)
 
-```
-Input:
-<number of elements>
-<elements>
+Most students run the programs using **online compilers**, especially during labs:
 
-Output:
-<required result>
-```
+* OnlineGDB
+* Programiz Online Compiler
+* GeeksforGeeks IDE
+* Replit
 
-Please check individual files for exact input/output expectations.
+### Steps:
 
----
-
-## 🎯 Purpose of This Repository
-
-* 📖 Daily DSA practice
-* 🎓 Teaching material for university students
-* 🧠 Strengthening problem‑solving skills
-* 💼 Interview and placement preparation
-* 🧑‍🏫 Clean reference implementations for learners
+1. Open any online compiler
+2. Copy `solution.c` / `solution.py` / `solution.java`
+3. Paste the code
+4. Provide input via **stdin**
+5. Run & verify output
 
 ---
 
-## 🛠 Suggested Improvements (Future Scope)
+### 💻 Offline Execution (Optional)
 
-* [ ] Add problem statements inside each folder
-* [ ] Add sample input/output files
-* [ ] Add time & space complexity analysis
-* [ ] Convert solutions into a single‑language version
-* [ ] Add unit tests (Python)
+#### Python
+
+```bash
+python solution.py
+```
+
+#### Java
+
+```bash
+javac solution.java
+java solution
+```
+
+#### C
+
+```bash
+gcc solution.c -o solution
+./solution
+```
+
+## 🧠 Recommended Learning Workflow
+
+```
+Understand (Notes) → Visualize → Implement → Explain → Optimize
+```
+
+This approach ensures:
+
+* Strong conceptual clarity
+* Confidence in viva & interviews
+* Long‑term retention
 
 ---
 
 ## 👨‍🏫 Author
 
 **Venkatesh Moyya**
-MERN Stack Trainer | DSA & System Design Enthusiast
-Competitive Coding & Teaching Focused Repository
+MERN Stack| DSA
 
 GitHub: [https://github.com/venkatesh7975](https://github.com/venkatesh7975)
 
 ---
 
-## 📚 DSA Cheat Sheets & Practice Resources (Reference)
+## ⭐ Support
 
-Use the following **high‑quality DSA cheat sheets and platforms** alongside this repository for revision and practice:
+If this repository helps you:
 
----
-
-### 🔹 Core DSA Cheat Sheets
-
-* **Love Babbar – DSA Sheet (450 Questions)**
-  Covers arrays, strings, linked lists, stacks, queues, trees, BSTs, graphs, DP.
-
-* **Striver (Take U Forward) – A2Z DSA Sheet**
-  Very structured from basics → advanced, excellent for interviews.
-
-* **Blind 75**
-  Must‑do problems for FAANG‑level interviews.
-
-* **NeetCode 150**
-  Clean explanations + categorized problems.
-
----
-
-### 🔹 Topic‑Wise Practice Platforms
-
-* **LeetCode** – Interview‑focused problems
-* **GeeksforGeeks** – Concepts + practice + theory
-* **CodeStudio (Coding Ninjas)** – Structured DSA paths
-* **HackerRank** – Beginner‑friendly practice
-* **Codeforces** – Competitive programming & logic building
-
----
-
-### 🔹 Tree & BST Special Practice
-
-* Binary Tree Traversals
-* BST Insertion & Validation
-* Left / Right / Top / Bottom Views
-* Lowest Common Ancestor (LCA)
-* Diameter & Height of Tree
-
-👉 This repository’s problems (like `BuildBST`, `ValidBST`, `leftViewTree`) directly align with these topics.
-
----
-
-### 🔹 How to Use This Repo with Cheat Sheets (Recommended)
-
-1. Pick a topic from a cheat sheet (e.g., **BST**)
-2. Solve 2–3 problems from the sheet
-3. Implement the same logic from scratch in this repo
-4. Compare with your previous solutions
-5. Explain the solution as if teaching someone
-
-This method builds **concept clarity + interview confidence**.
-
----
-
-## ⭐ If You Find This Useful
-
-Give the repository a ⭐ and feel free to fork or contribute!
+* ⭐ Star the repo
+* 🍴 Fork and practice
+* 🧑‍💻 Contribute improvements
 
 Happy Coding 🚀
