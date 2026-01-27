@@ -244,6 +244,7 @@ The repository includes the following DSA sheets:
 | 6 | Siddharth Singh 450 Qs DSA Sheet | https://docs.google.com/spreadsheets/u/0/d/11tevcTIBQsIvRKIZLbSzCeN4mCO6wD4O5meyrAIfSXw/htmlview | 
 | 7 | The Code Skool DSA Sheet | https://docs.google.com/document/u/0/d/1RxKKXJtErQFJjMfAh1kV-DyQsZoiESayimFx6PPIhVE/mobilebasic 
 | 8 | NamstedDev Sheet   | 	Namaste DSA Sheet (Namaste Dev)	https://namastedev.com/namaste-dsa-sheet  |
+| 9 | AlgoMaster Dsa Roadmap | https://algomaster.io/learn/dsa/course-roadmap |
 
 
 # 📌 Essential Tips for Data Structures & Algorithms (DSA)
