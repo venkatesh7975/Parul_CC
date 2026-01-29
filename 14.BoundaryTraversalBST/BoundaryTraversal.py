@@ -1,10 +1,14 @@
 import sys
+
+# ---------- Node Definition ----------
 class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
-        
+
+
+# ---------- Build Tree (Preorder with -1) ----------
 def build_tree(values):
     try:
         val = next(values)
@@ -14,53 +18,75 @@ def build_tree(values):
     if val == -1:
         return None
 
-    node = Node(val)
-    node.left = build_tree(values)
-    node.right = build_tree(values)
-    return node
+    root = Node(val)
+    root.left = build_tree(values)
+    root.right = build_tree(values)
+    return root
 
 
+# ---------- Utility ----------
+def is_leaf(node):
+    return node is not None and node.left is None and node.right is None
 
-def printLeaves(root, res):
+
+# ---------- Left Boundary (excluding leaves) ----------
+def add_left_boundary(root, result):
+    curr = root
+    while curr:
+        if not is_leaf(curr):
+            result.append(curr.val)
+        curr = curr.left if curr.left else curr.right
+
+
+# ---------- Leaf Nodes (left to right) ----------
+def add_leaves(root, result):
     if not root:
         return
-    printLeaves(root.left, res)
-    if not root.left and not root.right:
-        res.append(root.val)
-    printLeaves(root.right, res)
 
-def boundaryTraversal(root):
-    res = []
+    if is_leaf(root):
+        result.append(root.val)
+        return
+
+    add_leaves(root.left, result)
+    add_leaves(root.right, result)
+
+
+# ---------- Right Boundary (excluding leaves, bottom-up) ----------
+def add_right_boundary(root, result):
+    stack = []
+    curr = root
+
+    while curr:
+        if not is_leaf(curr):
+            stack.append(curr.val)
+        curr = curr.right if curr.right else curr.left
+
+    while stack:
+        result.append(stack.pop())
+
+
+# ---------- Boundary Traversal ----------
+def boundary_traversal(root):
     if not root:
-        return res
-    res.append(root.val)
+        return []
 
-    # Left boundary
-    node = root.left
-    while node:
-        if node.left or node.right:
-            res.append(node.val)
-        node = node.left if node.left else node.right
+    result = []
 
-    # Leaves
-    printLeaves(root.left, res)
-    printLeaves(root.right, res)
+    if not is_leaf(root):
+        result.append(root.val)
 
-    # Right boundary
-    node = root.right
-    rightNodes = []
-    while node:
-        if node.left or node.right:
-            rightNodes.append(node.val)
-        node = node.right if node.right else node.left
-    res.extend(reversed(rightNodes))
+    add_left_boundary(root.left, result)
+    add_leaves(root, result)
+    add_right_boundary(root.right, result)
 
-    return res
+    return result
 
 
 
-vals = (map(int, sys.stdin.read().split()))
+values = map(int, sys.stdin.read().split())
+root = build_tree(values)
 
-root = build_tree(vals)
-ans = boundaryTraversal(root)
-print("Boundary Traversal:", *ans)
+boundary = boundary_traversal(root)
+print("Boundary Traversal:",*boundary)
+
+
