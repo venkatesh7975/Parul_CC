@@ -1,5 +1,6 @@
 import sys
 
+values = list(map(int, sys.stdin.read().split()))
 # ---------- Node Definition ----------
 class Node:
     def __init__(self, val):
@@ -9,20 +10,20 @@ class Node:
 
 
 # ---------- Build Tree (Preorder with -1) ----------
-def build_tree(values):
-    try:
-        val = next(values)
-    except StopIteration:
-        return None
-
-    if val == -1:
-        return None
-
-    root = Node(val)
-    root.left = build_tree(values)
-    root.right = build_tree(values)
+def insertBST(root, val):
+    if not root:
+        return Node(val)
+    if val < root.val:
+        root.left = insertBST(root.left, val)
+    else:
+        root.right = insertBST(root.right, val)
     return root
 
+root=None 
+for i in values:
+    if i==-1:
+        break 
+    root=insertBST(root,i)
 
 # ---------- Utility ----------
 def is_leaf(node):
@@ -80,11 +81,6 @@ def boundary_traversal(root):
     add_right_boundary(root.right, result)
 
     return result
-
-
-
-values = map(int, sys.stdin.read().split())
-root = build_tree(values)
 
 boundary = boundary_traversal(root)
 print("Boundary Traversal:",*boundary)
