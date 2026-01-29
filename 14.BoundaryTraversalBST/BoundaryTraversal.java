@@ -1,73 +1,71 @@
 import java.util.*;
 
-class Node {
-    int val;
-    Node left, right;
-    Node(int v) { val = v; left = right = null; }
-}
+class Main {
+    static class Node {
+        int val;
+        Node left, right;
+        Node(int v) { val = v; left = right = null; }
+    }
 
-public class Main {
-    static Node buildTree(List<Integer> vals, int[] idx) {
-        if (idx[0] >= vals.size() || vals.get(idx[0]) == -1) {
-            idx[0]++;
-            return null;
-        }
-        Node root = new Node(vals.get(idx[0]++));
-        root.left = buildTree(vals, idx);
-        root.right = buildTree(vals, idx);
+    static Node insertBST(Node root, int val){
+        if(root == null) return new Node(val);
+        if(val < root.val) root.left = insertBST(root.left, val);
+        else root.right = insertBST(root.right, val);
         return root;
     }
 
-    static void printLeaves(Node root, List<Integer> res) {
-        if (root == null) return;
-        printLeaves(root.left, res);
-        if (root.left == null && root.right == null)
-            res.add(root.val);
-        printLeaves(root.right, res);
+    static boolean isLeaf(Node root){ return root != null && root.left == null && root.right == null; }
+
+    static void leftBoundary(Node root){
+        if(root == null) return;
+        if(root.left != null){ 
+            System.out.print(root.val + " "); 
+            leftBoundary(root.left); 
+        }
+        else if(root.right != null){ 
+            System.out.print(root.val + " "); 
+            leftBoundary(root.right);
+        }
     }
 
-    static List<Integer> boundaryTraversal(Node root) {
-        List<Integer> res = new ArrayList<>();
-        if (root == null) return res;
-
-        res.add(root.val);
-
-        // Left boundary
-        Node node = root.left;
-        while (node != null) {
-            if (node.left != null || node.right != null)
-                res.add(node.val);
-            node = (node.left != null) ? node.left : node.right;
+    static void rightBoundary(Node root){
+        if(root == null) return;
+        if(root.right != null){ 
+            rightBoundary(root.right); 
+            System.out.print(root.val + " "); 
         }
-
-        // Leaf nodes
-        printLeaves(root.left, res);
-        printLeaves(root.right, res);
-
-        // Right boundary
-        List<Integer> rightNodes = new ArrayList<>();
-        node = root.right;
-        while (node != null) {
-            if (node.left != null || node.right != null)
-                rightNodes.add(node.val);
-            node = (node.right != null) ? node.right : node.left;
+        else if(root.left != null){ 
+            rightBoundary(root.left); 
+            System.out.print(root.val + " "); 
         }
-        Collections.reverse(rightNodes);
-        res.addAll(rightNodes);
-
-        return res;
     }
 
-    public static void main(String[] args) {
+    static void printLeaves(Node root){
+        if(root == null) return;
+        printLeaves(root.left);
+        if(isLeaf(root)) System.out.print(root.val + " ");
+        printLeaves(root.right);
+    }
+
+    static void boundaryTraversal(Node root){
+        if(root == null) return;
+        System.out.print(root.val + " "); // root
+        leftBoundary(root.left);
+        printLeaves(root.left);
+        printLeaves(root.right);
+        rightBoundary(root.right);
+    }
+
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        List<Integer> vals = new ArrayList<>();
-        while (sc.hasNextInt())
-            vals.add(sc.nextInt());
-        int[] idx = {0};
-        Node root = buildTree(vals, idx);
-        List<Integer> ans = boundaryTraversal(root);
+        Node root = null;
+        while(sc.hasNextInt()){
+            int val = sc.nextInt();
+            if(val == -1) break;
+            root = insertBST(root, val);
+        }
         System.out.print("Boundary Traversal: ");
-        for (int v : ans)
-            System.out.print(v + " ");
+        boundaryTraversal(root);
+        System.out.println();
     }
 }
