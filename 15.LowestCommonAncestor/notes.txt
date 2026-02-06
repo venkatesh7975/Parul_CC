@@ -1,1 +1,1 @@
-This is practical15 notes file.
+LCA of BT visualization link :  https://learn-stack-trace.lovable.app
