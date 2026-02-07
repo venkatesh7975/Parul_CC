@@ -32,6 +32,77 @@ The repository includes the following DSA sheets:
 
 
 
+
+## 🌐 **Websites (Free Practice + Theory)**
+
+[https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z](https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z)
+
+[https://neetcode.io/](https://neetcode.io/)
+
+[https://www.geeksforgeeks.org/dsa/dsa/](https://www.geeksforgeeks.org/dsa/dsa/)
+
+[https://leetcode.com/](https://leetcode.com/)
+
+[https://codeforces.com/](https://codeforces.com/)
+
+[https://codechef.com/](https://codechef.com/)
+
+[https://atcoder.jp/](https://atcoder.jp/)
+
+[https://hackerrank.com/](https://hackerrank.com/)
+
+[https://www.programiz.com/dsa](https://www.programiz.com/dsa)
+
+---
+
+## 📺 **YouTube — Free DSA Channels & Playlists**
+
+### Abdul Bari
+
+[https://www.youtube.com/playlist?list=PLAXnLdrLnQpRcveZTtD644gM9uzYqJCwr](https://www.youtube.com/playlist?list=PLAXnLdrLnQpRcveZTtD644gM9uzYqJCwr)
+
+[https://www.youtube.com/@abdul_bari](https://www.youtube.com/@abdul_bari)
+
+### Striver
+
+[https://www.youtube.com/c/striver](https://www.youtube.com/c/striver)
+
+### freeCodeCamp
+
+[https://www.youtube.com/freecodecamp.org](https://www.youtube.com/freecodecamp.org)
+
+### Design Gurus
+
+[https://www.youtube.com/c/DesignGurusIo](https://www.youtube.com/c/DesignGurusIo)
+
+### MyCodeSchool
+
+[https://www.youtube.com/c/mycodeschool](https://www.youtube.com/c/mycodeschool)
+
+### CS Dojo
+
+[https://www.youtube.com/c/CSDojo](https://www.youtube.com/c/CSDojo)
+
+### Tushar Roy
+
+[https://www.youtube.com/c/TusharRoy1955](https://www.youtube.com/c/TusharRoy1955)
+
+### Neso Academy
+
+[https://www.youtube.com/c/NesoAcademy](https://www.youtube.com/c/NesoAcademy)
+
+---
+
+## 📚 **Extra Useful Links**
+
+[https://github.com/ashishps1/awesome-leetcode-resources](https://github.com/ashishps1/awesome-leetcode-resources)
+
+[https://leetcode.com/problem-list/eeudwo2i/](https://leetcode.com/problem-list/eeudwo2i/)
+
+---
+
+
+
 ## Contributing
 We welcome contributions from the community to help us improve and expand the collection of DSA sheets. If you have a new sheet to contribute or want to improve an existing one, please create a pull request with your changes.
 
