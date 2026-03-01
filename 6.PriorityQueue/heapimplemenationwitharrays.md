@@ -359,3 +359,362 @@ That’s the entire heap logic.
 ---
 
 
+Below is a **clean, symmetric, professional Markdown version** including:
+
+* Max Heap
+* Min Heap
+* Insert
+* Delete
+* Heapify Up
+* Heapify Down
+* Build Heap
+* Comparison
+
+You can directly paste this into GitHub / Notion / your course material.
+
+---
+
+# 🌳 Heap Data Structure — Complete Notes (Max Heap + Min Heap)
+
+---
+
+# 📌 1. What is a Heap?
+
+A **Heap** is a **Complete Binary Tree** that satisfies the **Heap Property**.
+
+> 💡 Heap does NOT guarantee sorted order.
+> It only guarantees correct ordering between parent and children.
+
+---
+
+## ✅ Complete Binary Tree Rules
+
+* All levels completely filled
+* Last level filled **from left to right**
+* No gaps allowed
+
+---
+
+### 📷 Complete Binary Tree Example
+
+![Image](https://cdn.programiz.com/sites/tutorial2program/files/complete-binary-tree_0.png)
+
+![Image](https://files.codingninjas.in/complete_binary_tree-6731.png)
+
+![Image](https://gtl.csa.iisc.ac.in/dsa/img158.gif)
+
+![Image](https://miro.medium.com/1%2ACMGFtehu01ZEBgzHG71sMg.png)
+
+---
+
+# 📌 2. Types of Heap
+
+---
+
+# 🔼 2.1 Max Heap
+
+### Heap Property
+
+```text
+Parent ≥ Children
+```
+
+* Largest element at root
+* Used when we need maximum quickly
+
+### Example
+
+```
+        50
+      /    \
+    30      40
+   /  \
+ 10   20
+```
+
+Array:
+
+```python
+[50, 30, 40, 10, 20]
+```
+
+---
+
+# 🔽 2.2 Min Heap
+
+### Heap Property
+
+```text
+Parent ≤ Children
+```
+
+* Smallest element at root
+* Used in Dijkstra, Prim’s Algorithm, etc.
+
+### Example
+
+```
+        10
+      /    \
+    20      30
+   /  \
+ 40   50
+```
+
+Array:
+
+```python
+[10, 20, 30, 40, 50]
+```
+
+---
+
+### 📷 Max Heap vs Min Heap
+
+![Image](https://www.btechsmartclass.com/data_structures/ds_images/Max%20Heap.png)
+
+![Image](https://iq.opengenus.org/content/images/2019/06/Min-Heap.png)
+
+![Image](https://prepbytes-misc-images.s3.ap-south-1.amazonaws.com/assets/1674109793492-Difference%20Between%20Max%20Heap%20and%20Min%20Heap2.png)
+
+![Image](https://prepbytes-misc-images.s3.ap-south-1.amazonaws.com/assets/1661418057715-MaxHeapinJava%20-1.png)
+
+---
+
+# 📌 3. Array Representation (Most Important Concept)
+
+Heap is stored in an **array**.
+
+For any index `i`:
+
+```text
+Parent      = (i - 1) // 2
+Left Child  = 2*i + 1
+Right Child = 2*i + 2
+```
+
+> Heap = Array + Index Mathematics
+
+---
+
+# 📌 4. Core Operations
+
+* Insert
+* Heapify Up
+* Delete Root
+* Heapify Down
+* Build Heap
+
+---
+
+# 🔼 5. INSERT — Max Heap
+
+### Logic
+
+1. Add element at end
+2. Bubble Up while parent < child
+
+---
+
+### Python Code (Max Heap)
+
+```python
+max_heap = []
+
+def insert_max(value):
+    max_heap.append(value)
+    heapify_up_max(len(max_heap) - 1)
+
+def heapify_up_max(i):
+    while i > 0:
+        parent = (i - 1) // 2
+        
+        if max_heap[parent] < max_heap[i]:
+            max_heap[parent], max_heap[i] = max_heap[i], max_heap[parent]
+            i = parent
+        else:
+            break
+```
+
+---
+
+# 🔽 6. INSERT — Min Heap
+
+### Logic
+
+1. Add element at end
+2. Bubble Up while parent > child
+
+---
+
+### Python Code (Min Heap)
+
+```python
+min_heap = []
+
+def insert_min(value):
+    min_heap.append(value)
+    heapify_up_min(len(min_heap) - 1)
+
+def heapify_up_min(i):
+    while i > 0:
+        parent = (i - 1) // 2
+        
+        if min_heap[parent] > min_heap[i]:
+            min_heap[parent], min_heap[i] = min_heap[i], min_heap[parent]
+            i = parent
+        else:
+            break
+```
+
+---
+
+# 🔼 7. DELETE ROOT — Max Heap
+
+### Steps
+
+1. Store root
+2. Replace root with last element
+3. Remove last
+4. Heapify Down
+
+---
+
+### Python Code
+
+```python
+def delete_max():
+    if not max_heap:
+        return None
+
+    root = max_heap[0]
+    max_heap[0] = max_heap[-1]
+    max_heap.pop()
+
+    heapify_down_max(0)
+    return root
+
+
+def heapify_down_max(i):
+    n = len(max_heap)
+
+    while True:
+        left = 2*i + 1
+        right = 2*i + 2
+        largest = i
+
+        if left < n and max_heap[left] > max_heap[largest]:
+            largest = left
+
+        if right < n and max_heap[right] > max_heap[largest]:
+            largest = right
+
+        if largest == i:
+            break
+
+        max_heap[i], max_heap[largest] = max_heap[largest], max_heap[i]
+        i = largest
+```
+
+---
+
+# 🔽 8. DELETE ROOT — Min Heap
+
+### Python Code
+
+```python
+def delete_min():
+    if not min_heap:
+        return None
+
+    root = min_heap[0]
+    min_heap[0] = min_heap[-1]
+    min_heap.pop()
+
+    heapify_down_min(0)
+    return root
+
+
+def heapify_down_min(i):
+    n = len(min_heap)
+
+    while True:
+        left = 2*i + 1
+        right = 2*i + 2
+        smallest = i
+
+        if left < n and min_heap[left] < min_heap[smallest]:
+            smallest = left
+
+        if right < n and min_heap[right] < min_heap[smallest]:
+            smallest = right
+
+        if smallest == i:
+            break
+
+        min_heap[i], min_heap[smallest] = min_heap[smallest], min_heap[i]
+        i = smallest
+```
+
+---
+
+# 📌 9. Build Heap (Interview Gold)
+
+### Method 1 — Insert One by One
+
+```
+Time = O(n log n)
+```
+
+### Method 2 — Bottom-Up Heapify (Correct Way)
+
+```
+Time = O(n)
+```
+
+> ⚠️ Most candidates answer O(n log n).
+> Correct answer: O(n).
+
+---
+
+# 📊 10. Time Complexity Table
+
+| Operation  | Max Heap | Min Heap |
+| ---------- | -------- | -------- |
+| Insert     | O(log n) | O(log n) |
+| Delete     | O(log n) | O(log n) |
+| Peek       | O(1)     | O(1)     |
+| Build Heap | O(n)     | O(n)     |
+
+---
+
+# 🧠 11. Mental Model
+
+```
+Max Heap:
+Insert → Bubble UP ↑
+Delete → Push DOWN ↓
+
+Min Heap:
+Insert → Bubble UP ↑
+Delete → Push DOWN ↓
+```
+
+Only comparison sign changes.
+
+---
+
+# 🎯 12. Where Heaps Are Used
+
+* Priority Queue
+* Dijkstra’s Algorithm
+* Prim’s Algorithm
+* Heap Sort
+* Top K Frequent Elements
+* Kth Largest / Smallest
+
+---
+
+
+
+
