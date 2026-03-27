@@ -1,1 +1,1 @@
-https://shunting-storyteller.lovable.app
+algo-shunt-vis.vercel.app
