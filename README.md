@@ -1,5 +1,6 @@
 #stack 
 https://bracket-balancers-buddy.lovable.app/
+https://infix-step-by-step.lovable.app
 
 # 🚀 Parul_CC – Competitive Coding (Semester‑4) | Complete Syllabus‑Aligned DSA Repository
 
