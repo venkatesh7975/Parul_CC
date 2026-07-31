@@ -1,3 +1,6 @@
+#stack 
+https://bracket-balancers-buddy.lovable.app/
+
 # 🚀 Parul_CC – Competitive Coding (Semester‑4) | Complete Syllabus‑Aligned DSA Repository
 
 A **syllabus‑driven Competitive Coding & Data Structures repository** designed for **Parul University (BTech – Semester 4)** students.
